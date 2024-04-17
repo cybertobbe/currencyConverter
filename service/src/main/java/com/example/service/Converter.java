@@ -1,6 +1,10 @@
 package com.example.service;
 
+import java.math.BigDecimal;
+
 public interface Converter {
 
-        double convert(double value);
+
+    double convert(double value, double rate);
+
 }
