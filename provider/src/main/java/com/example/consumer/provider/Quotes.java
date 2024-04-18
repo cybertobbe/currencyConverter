@@ -1,7 +1,6 @@
-package com.example.provider;
+package com.example.consumer.provider;
 
-import com.example.service.Converter;
-
+import com.example.consumer.service.Converter;
 
 
 public class Quotes implements Converter {

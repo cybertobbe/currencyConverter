@@ -1,7 +1,8 @@
-import com.example.provider.Quotes;
+import com.example.consumer.provider.Quotes;
+import com.example.consumer.service.Converter;
 
 module provider {
-    provides com.example.service.Converter with Quotes;
+    provides Converter with Quotes;
     requires service;
 
 }

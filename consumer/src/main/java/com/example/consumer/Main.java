@@ -1,6 +1,6 @@
-package com.example.service.consumer;
+package com.example.consumer;
 
-import com.example.service.Converter;
+import com.example.consumer.service.Converter;
 
 import java.util.ServiceLoader;
 

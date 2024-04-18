@@ -1,3 +1,3 @@
 module service {
-    exports com.example.service;
+    exports com.example.consumer.service;
 }
