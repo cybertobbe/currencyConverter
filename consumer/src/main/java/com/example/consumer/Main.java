@@ -14,7 +14,7 @@ public class Main {
                 double value = 0.0;
                 double rate = 0.0;
                 
-                ServiceLoader<Converter> loader = null;
+                ServiceLoader<Converter> loader;
                 Converter converter = null;
                 switch (choice) {
                         case 1:
