@@ -17,4 +17,9 @@ public class usdsek implements Converter{
 
 
     }
+
+    @Override
+    public String getCounterCurrency() {
+        return "SEK";
+    }
 }

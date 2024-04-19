@@ -5,5 +5,5 @@ import java.math.BigDecimal;
 public interface Converter {
 
     BigDecimal convert(double value);
-
+    String getCounterCurrency();
 }

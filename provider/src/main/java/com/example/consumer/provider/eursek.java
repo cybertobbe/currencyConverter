@@ -16,4 +16,8 @@ public class eursek implements Converter {
         return bd;
 
     }
+    @Override
+    public String getCounterCurrency() {
+        return "SEK";
+    }
 }

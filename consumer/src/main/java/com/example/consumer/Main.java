@@ -35,7 +35,7 @@ public class Main {
                         }
                         System.out.println("Enter value to convert: ");
                         value = sc.nextDouble();
-                        System.out.println("Converted amount is: " + converters.convert(value) + " SEK");
+                        System.out.println("Converted amount is: " + converters.convert(value) + " " + converters.getCounterCurrency());
                 }
                 else {
                         System.out.println("Invalid choice");
