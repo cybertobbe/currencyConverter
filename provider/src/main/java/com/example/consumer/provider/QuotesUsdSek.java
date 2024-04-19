@@ -8,11 +8,13 @@ import java.math.RoundingMode;
 public class QuotesUsdSek implements Converter{
 
     @Override
-    public double convert(double value, double rate) {
+    public BigDecimal convert(double value) {
+        double rate = 10.90;
         BigDecimal bd = new BigDecimal(Double.toString(value*rate));
         bd = bd.setScale(2, RoundingMode.HALF_UP);
 
-        return bd.doubleValue();
+        return bd;
+
 
     }
 }

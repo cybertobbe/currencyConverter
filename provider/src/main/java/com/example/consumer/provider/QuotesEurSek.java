@@ -9,10 +9,11 @@ public class QuotesEurSek implements Converter {
 
 
     @Override
-    public double convert(double value, double rate) {
+    public BigDecimal convert(double value) {
+        double rate = 11.65;
         BigDecimal bd = new BigDecimal(Double.toString(value*rate));
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+        return bd;
 
     }
 }
