@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 
-public class QuotesEurSek implements Converter {
+public class eurusd implements Converter {
 
 
     @Override

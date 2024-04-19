@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 
-public class QuotesUsdSek implements Converter{
+public class usdsek implements Converter{
 
     @Override
     public BigDecimal convert(double value) {
