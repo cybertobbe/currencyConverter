@@ -16,7 +16,7 @@ public class Main {
 
 
                 ServiceLoader<Converter> loader;
-                Converter converter = null;
+                Converter converter;
                 switch (choice) {
                         case 1:
 
