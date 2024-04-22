@@ -19,7 +19,7 @@ public class Main {
                 int i = 1;
                 while (iterator.hasNext()) {
                         Converter converter = iterator.next();
-                        System.out.println(i + ". " + converter.getClass().getSimpleName() + " Rate: " +  converter.convert(1));
+                        System.out.println(i + ". " + converter.getClass().getSimpleName() + " -- Rate: " +  converter.convert(1));
                         i++;
                 }
 
