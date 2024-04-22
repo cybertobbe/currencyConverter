@@ -1,61 +1,46 @@
 package com.example.consumer;
 
+
 import com.example.consumer.service.Converter;
-import java.util.Scanner;
-import java.util.ServiceLoader;
+import java.util.*;
 
 public class Main {
 
         public static void main(String[] args) {
+
+                //Menu
                 Scanner sc = new Scanner(System.in);
+                ServiceLoader<Converter> loader = ServiceLoader.load(Converter.class);
+                Iterator<Converter> iterator = loader.iterator();
+                double value;
+                Converter converters = null;
 
-                System.out.println("Choose currency pair to convert: 1. EURSEK 2. USDSEK");
-                int choice = sc.nextInt();
-                double value = 0.0;
-                double rate = 0.0;
-                
-                ServiceLoader<Converter> loader;
-                Converter converter = null;
-                switch (choice) {
-                        case 1:
-                                rate = 11.65;
-                                System.out.println("1 EUR is " + rate + " SEK: ");
-                                System.out.println("Enter amount of EUR to convert to SEK: ");
-                                value = sc.nextDouble();
-
-
-                                loader = ServiceLoader.load(Converter.class);
-                                converter = loader.stream()
-                                        .filter(provider -> provider.type().getName().equals("com.example.consumer.provider.QuotesEurSek"))
-                                        .findFirst()
-                                        .orElseThrow(() -> new IllegalArgumentException("No suitable converter found"))
-                                        .get();
-                                break;
-                        case 2:
-
-                                rate = 10.90;
-                                System.out.println("1 USD is " + rate + " SEK: ");
-                                System.out.println("Enter amount of USD to convert to SEK: ");
-                                value = sc.nextDouble();
-
-
-                                loader = ServiceLoader.load(Converter.class);
-                                converter = loader.stream()
-                                        .filter(provider -> provider.type().getName().equals("com.example.consumer.provider.QuotesUsdSek"))
-                                        .findFirst()
-                                        .orElseThrow(() -> new IllegalArgumentException("No suitable converter found"))
-                                        .get();
-                                break;
-                        default:
-                                System.out.println("Invalid choice");
-                                System.exit(1);
+                System.out.println("Choose currency pair to convert: ");
+                int i = 1;
+                while (iterator.hasNext()) {
+                        Converter converter = iterator.next();
+                        System.out.println(i + ". " + converter.getClass().getSimpleName() + " -- Rate: " +  converter.convert(1));
+                        i++;
                 }
 
-
-                        System.out.println(converter.convert(value, rate) + " SEK");
-
-
-
+                int choice = sc.nextInt();
+                if (choice > 0) {
+                        i = 1;
+                        for (Converter converter : loader) {
+                                if (i == choice) {
+                                        converters = converter;
+                                        break;
+                                }
+                                i++;
+                        }
+                        System.out.println("Enter value to convert: ");
+                        value = sc.nextDouble();
+                        System.out.println("Converted amount is: " + converters.convert(value) + " " + converters.getCounterCurrency());
+                }
+                else {
+                        System.out.println("Invalid choice");
+                        System.exit(1);
+                }
 
         }
 }

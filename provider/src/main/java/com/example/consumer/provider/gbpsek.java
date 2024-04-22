@@ -5,14 +5,19 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 
-public class QuotesEurSek implements Converter {
+public class gbpsek implements Converter {
 
 
     @Override
-    public double convert(double value, double rate) {
+    public BigDecimal convert(double value) {
+        double rate = 13.60;
         BigDecimal bd = new BigDecimal(Double.toString(value*rate));
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+        return bd;
 
+    }
+    @Override
+    public String getCounterCurrency() {
+        return "SEK";
     }
 }
